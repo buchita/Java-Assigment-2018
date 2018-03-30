@@ -18,9 +18,9 @@ import java.util.*;
 public class Read_file
 {
     // Attributes.
-    String fileName;
-    File fleExample;
-    ArrayList<String> words = new ArrayList<>();
+    private String fileName;
+    private File fleExample;
+    private ArrayList<String> words = new ArrayList<>();
 
 
 
@@ -32,6 +32,36 @@ public class Read_file
 
 
 
+    //getters and setters
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public File getFleExample() {
+        return fleExample;
+    }
+
+    public void setFleExample(File fleExample) {
+        this.fleExample = fleExample;
+    }
+
+    public ArrayList<String> getWords() {
+        return words;
+    }
+
+    public void setWords(ArrayList<String> words) {
+        this.words = words;
+    }
+
+
+
+
+
+    //methods starts here
     //Open the file and convert from string to file
     public void openFile()
     {
@@ -39,31 +69,48 @@ public class Read_file
 
     }
 
-
     // read a line from the file, return the line as a String
-    public void readLine()
+    public ArrayList<String> readLine()
     {
         String line = "no line in file";
         try
         {
-            // I don't need the scanner in any other method, so I can create it here.
             Scanner myScanner = new Scanner(fleExample);
-
 
             while(myScanner.hasNextLine())
             {
+                //read in a line
+                line = myScanner.nextLine();
 
-                    line = myScanner.nextLine();
-                    words.add(line);
-                    System.out.println (words);
+                line = line.replaceAll(",","");
+                line = line.replace(".","");
+                line = line.replaceAll(":","");
 
-                /*for (int i=0; i< myScanner.length(); i++)
+
+
+
+                //split-whitespaces and put in the array
+                String sp[] = line.split("\\s+");
+
+
+
+                //transfer into an arraylist
+                for (int i =0; i<sp.length; i++)
                 {
-                    readin_arr[i] = myScanner.nextLine();
-                }*/
+
+                    //make all the letters to lowercase
+                    sp[i] = sp[i].toLowerCase();
+
+
+                    //add in the arraylist
+                    words.add(sp[i]);
+                }
 
             }
 
+            //print out the entire array list
+
+            System.out.println (words.size());
 
             myScanner.close();
         }
@@ -72,17 +119,9 @@ public class Read_file
             System.out.println(e.getMessage());
         }
 
-        //return line;
-
-
+        return words;
     } // readLine
 
-    @Override
-    public String toString() {
-        return "Read_file{" +
-                "fileName='" + fileName + '\'' +
-                ", fleExample=" + fleExample +
-                '}';
-    }
+
 
 }
