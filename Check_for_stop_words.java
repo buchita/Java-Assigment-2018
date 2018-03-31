@@ -8,8 +8,7 @@
 
 package File;
 
-
-import java.util.ArrayList;
+import java.util.*;
 
 public class Check_for_stop_words {
     //attribute
@@ -55,8 +54,11 @@ public class Check_for_stop_words {
 
 
     //methods
-    public ArrayList<String>  check() //to check if the content contains any stop words if so remove them.
+    public ArrayList<String> check() //to check if the content contains any stop words if so remove them.
     {
+
+        //sort the array alphabetically
+        Collections.sort(arr_checking);
 
         for (int i =0; i<stop_words.length; i++)
         {
@@ -64,16 +66,16 @@ public class Check_for_stop_words {
             while(arr_checking.contains(stop_words[i]))
             {
                 //print out what it contains
-                System.out.println("yes it contains: "+stop_words[i]);
+                //System.out.println("yes it contains: "+stop_words[i]);
 
                 //remove the word from arraylist
-                arr_checking.remove(stop_words[i]); //stop_word[i] = the word that is contained in the arraylist
+                arr_checking.remove(stop_words[i]); //stop_word[i] = the word that is contained in the array list
             }
 
         }
 
         System.out.println(arr_checking.size());
-        System.out.println(arr_checking);
+        //System.out.println(arr_checking);
 
         return arr_checking;
 

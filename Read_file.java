@@ -12,7 +12,6 @@ package File;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-//import java.io.PrintWriter;
 import java.util.*;
 
 public class Read_file
@@ -82,16 +81,12 @@ public class Read_file
                 //read in a line
                 line = myScanner.nextLine();
 
-                line = line.replaceAll(",","");
-                line = line.replace(".","");
-                line = line.replaceAll(":","");
-
-
+                //removes all the special characters not a-z A-Z 0-9. \s is a string escape character
+                line = line.replaceAll("[^a-zA-Z0-9\\s]","");
 
 
                 //split-whitespaces and put in the array
                 String sp[] = line.split("\\s+");
-
 
 
                 //transfer into an arraylist
@@ -108,17 +103,18 @@ public class Read_file
 
             }
 
-            //print out the entire array list
-
+            //print out the entire size array list
             System.out.println (words.size());
 
+            //close the scanner
             myScanner.close();
         }
-        catch (FileNotFoundException e)
+        catch (FileNotFoundException e) //if there is no file found it will display the error message.
         {
             System.out.println(e.getMessage());
         }
 
+        //return the array list back to main
         return words;
     } // readLine
 

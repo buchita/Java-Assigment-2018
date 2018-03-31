@@ -17,19 +17,24 @@ public class Control
     public static void main(String[] args)
     {
 
-        //open and read the file
+        //instantiate the object calls filereader
         Read_file fileReader = new Read_file("something.txt");
+        //call the function to open the file
         fileReader.openFile();
+        //return an array list as the result of read in the line from a file
         ArrayList<String> arr_word = fileReader.readLine();
 
-       System.out.println(arr_word);
 
        //remove the stop words
        Check_for_stop_words testing = new Check_for_stop_words(arr_word);
-       ArrayList<String> checked_arr = testing.check();
 
-     //  System.out.println(checked_arr);
+       ArrayList<String> checked_arr = testing.check(); //removed all the stop words.
 
+       System.out.println(checked_arr);
+
+       //repeating words
+       Repeat_words repeating = new Repeat_words(checked_arr);
+       repeating.counting();
 
     }
 }
