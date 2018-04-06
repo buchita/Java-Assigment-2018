@@ -1,9 +1,12 @@
 /*
     PURPOSE: checking for stop words
 
-    DATE : 30/03/2018
+    START DATE : 30/03/2018
 
     Java Assignment - Topic Analyser
+
+    COMPILER: Intellij
+
 */
 
 package File;
@@ -74,7 +77,7 @@ public class Check_for_stop_words {
 
         }
 
-        System.out.println(arr_checking.size());
+       // System.out.println(arr_checking.size());
         //System.out.println(arr_checking);
 
         return arr_checking;

@@ -1,9 +1,13 @@
 /*
     PURPOSE: open, read a file and add the contents in arraylist
 
-    DATE: 18/03/2018
+    START DATE: 18/03/2018
 
     JAVA ASSIGNMENT - TOPIC ANALYSER
+
+    COMPILER: Intellij
+
+
  */
 
 
@@ -58,8 +62,6 @@ public class Read_file
 
 
 
-
-
     //methods starts here
     //Open the file and convert from string to file
     public void openFile()
@@ -67,6 +69,7 @@ public class Read_file
         fleExample = new File(fileName);
 
     }
+
 
     // read a line from the file, return the line as a String
     public ArrayList<String> readLine()
@@ -104,7 +107,7 @@ public class Read_file
             }
 
             //print out the entire size array list
-            System.out.println (words.size());
+           // System.out.println (words.size());
 
             //close the scanner
             myScanner.close();
