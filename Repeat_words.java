@@ -66,6 +66,7 @@ public class Repeat_words
             {
                 map.put(arr_repeating.get(i), 1);
             }
+//            System.out.println(map);
         }
 
         /*
@@ -80,35 +81,40 @@ public class Repeat_words
         ArrayList<String> top_five = new ArrayList<>();
 
         //keep track on the element which has been stored in the array
-        int counting = 0;
+       // int counter = 0;
 
-        do {
+      // while (counter < 10){
             //while is not the end of HashMap
             while(entryItr.hasNext())
             {
                 //find the highest value in the map
                 int maxValueInMap = (Collections.max(map.values()));
-                // System.out.println("The max num of repeating: "+maxValueInMap);
+                 System.out.println("The max num of repeating: "+maxValueInMap);
 
                 //create 'entry' which stores all the elements from map
                 Map.Entry<String, Integer> entry = entryItr.next();
 
                 //find the matching value from the entry
-                if (maxValueInMap==entry.getValue())
+                while (maxValueInMap==entry.getValue())
                 {
                     //counter to get only 5 highest repeated words
-                    counting++;
+                   // counter++;
 
                     //add in values and keys
                     top_5.add(entry.getValue());
+                    //System.out.println(top_5);
+
                     top_five.add(entry.getKey());
+                    //System.out.println(top_five);
 
                     //remove the element which is the highest
                     entryItr.remove();
+                    System.out.println("max value is: "+maxValueInMap);
+
                 }
             }
-        //need only top 5 elements
-        }while (counting<5);
+        //need only top 10 elements
+       // }//while (counter<5);
 
         System.out.println(top_5);
         System.out.println(top_five);

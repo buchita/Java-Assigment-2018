@@ -68,17 +68,11 @@ public class Check_for_stop_words {
             //check if the arraylist contains any stop words
             while(arr_checking.contains(stop_words[i]))
             {
-                //print out what it contains
-                //System.out.println("yes it contains: "+stop_words[i]);
-
                 //remove the word from arraylist
                 arr_checking.remove(stop_words[i]); //stop_word[i] = the word that is contained in the array list
             }
 
         }
-
-       // System.out.println(arr_checking.size());
-        //System.out.println(arr_checking);
 
         return arr_checking;
 

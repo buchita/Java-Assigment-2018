@@ -12,7 +12,6 @@
 
 
 
-
 package File;
 
 import javax.swing.*;
@@ -101,18 +100,21 @@ public class Main_screen extends JFrame implements ActionListener
                     /*
                         The code below relating to JFileChooser is taken from this website:
                         https://www.mkyong.com/swing/java-swing-jfilechooser-example/
-                     */
+                    */
+
+                    //instantiate a filechooser and get the window with the home directory
                     JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
 
                     //filter to select only text files
                     jfc.setDialogTitle("Select a text file");
+                    //set filter to text file only
                     jfc.setAcceptAllFileFilterUsed(false);
                     FileNameExtensionFilter filter = new FileNameExtensionFilter("Text File only", "txt");
                     jfc.addChoosableFileFilter(filter);
 
+
                     int returnValue = jfc.showOpenDialog(null);
-                    // int returnValue = jfc.showSaveDialog(null);
 
                     if (returnValue == JFileChooser.APPROVE_OPTION)
                     {
@@ -123,8 +125,10 @@ public class Main_screen extends JFrame implements ActionListener
 
                         //instantiate the object calls filereader
                         Read_file fileReader = new Read_file(read_in_file);
+
                         //call the function to open the file
                         fileReader.openFile();
+
                         //return an array list as the result of read in the line from a file
                         ArrayList<String> arr_word = fileReader.readLine();
 
@@ -138,6 +142,8 @@ public class Main_screen extends JFrame implements ActionListener
                         //repeating words
                         Repeat_words repeating = new Repeat_words(checked_arr);
                         repeating.counting();
+
+
 
                     }
                 }

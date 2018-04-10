@@ -74,14 +74,17 @@ public class Read_file
     // read a line from the file, return the line as a String
     public ArrayList<String> readLine()
     {
-        String line = "no line in file";
+        String line;
+        String sp[];
+
         try
         {
             Scanner myScanner = new Scanner(fleExample);
 
+            //while its not the end of the file
             while(myScanner.hasNextLine())
             {
-                //read in a line
+                //read in a line from the file
                 line = myScanner.nextLine();
 
                 //removes all the special characters not a-z A-Z 0-9. \s is a string escape character
@@ -89,8 +92,7 @@ public class Read_file
 
 
                 //split-whitespaces and put in the array
-                String sp[] = line.split("\\s+");
-
+                sp = line.split("\\s+");
 
                 //transfer into an arraylist
                 for (int i =0; i<sp.length; i++)
@@ -99,15 +101,11 @@ public class Read_file
                     //make all the letters to lowercase
                     sp[i] = sp[i].toLowerCase();
 
-
                     //add in the arraylist
                     words.add(sp[i]);
                 }
 
             }
-
-            //print out the entire size array list
-           // System.out.println (words.size());
 
             //close the scanner
             myScanner.close();
