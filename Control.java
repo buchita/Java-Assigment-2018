@@ -13,6 +13,7 @@
 package File;
 
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Control
@@ -42,8 +43,8 @@ public class Control
         //repeating words
         Repeat_words repeating = new Repeat_words(checked_arr);
         repeating.counting();
-*/
 
+*/
     }
 
 }
