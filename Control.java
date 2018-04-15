@@ -10,8 +10,7 @@
 */
 
 
-package File;
-
+package Com.TopicAnalyser;
 
 public class Control
 {
@@ -21,8 +20,4 @@ public class Control
         Main_screen myScreen = new Main_screen("testing a screen");
 
     }
-
 }
-
-
-

@@ -11,12 +11,13 @@
  */
 
 
+package Com.TopicAnalyser;
 
-package File;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+
 
 public class Read_file
 {

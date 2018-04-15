@@ -12,12 +12,14 @@
 
 */
 
-package File;
+
+
+package Com.TopicAnalyser;
 
 import java.util.*;
 
-
-public class Repeat_words {
+public class Repeat_words
+{
     //attributes
     private ArrayList<String> arr_repeating = new ArrayList<>();
 
@@ -112,4 +114,4 @@ public class Repeat_words {
 
     }//end of counting
 
-}//end class repeat_words
+}

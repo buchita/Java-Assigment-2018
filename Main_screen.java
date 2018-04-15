@@ -12,7 +12,7 @@
 
 
 
-package File;
+package Com.TopicAnalyser;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -22,7 +22,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+
 public class Main_screen extends JFrame implements ActionListener {
+
 
     //attributes
     private JButton choosetext1;
@@ -68,21 +70,22 @@ public class Main_screen extends JFrame implements ActionListener {
     public JButton getAddinstop() {
         return addinstop;
     }
+
     public void setAddinstop(JButton addinstop) {
         this.addinstop = addinstop;
     }
+
     public JButton getExit() {
         return exit;
     }
+
     public void setExit(JButton exit) {
         this.exit = exit;
     }
 
 
-
     //constructor taken a string
-    public Main_screen(String title)
-    {
+    public Main_screen(String title) {
         super(title);
         setSize(400, 400);
         setLayout(new FlowLayout());
@@ -113,7 +116,7 @@ public class Main_screen extends JFrame implements ActionListener {
 
         //close the window
         exit = new JButton("Close the window");
-        exit.setBackground(new java.awt.Color(159,255,128));
+        exit.setBackground(new java.awt.Color(159, 255, 128));
         add(exit);
         exit.addActionListener(this);
 
@@ -180,7 +183,7 @@ public class Main_screen extends JFrame implements ActionListener {
                             The code that is relating to yes or no window is taken and modified from this website
                             https://alvinalexander.com/java/java-joptionpane-showoptiondialog-examples
                          */
-                int choice = JOptionPane.showOptionDialog(null, "Select another file??", "File?", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+                int choice = JOptionPane.showOptionDialog(null, "Select another file??", "Com/TopicAnalyser", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
                 /* ********************************************************************************* */
                 if (choice == JOptionPane.YES_OPTION) {
 
@@ -257,10 +260,9 @@ public class Main_screen extends JFrame implements ActionListener {
                                 commonstr = commonstr + " " + common.get(i);
                             }
 
-                            System.out.println("the legth:" +commonstr.length());
                             //check if the string is empty i.e no common words
-                            if (commonstr.length()>1) {
-                                cmline =  "The common words between the 2 files:" + commonstr;
+                            if (commonstr.length() > 1) {
+                                cmline = "The common words between the 2 files:" + commonstr;
                             } else {
                                 cmline = "There is no common word between these 2 files";
                             }
@@ -271,9 +273,7 @@ public class Main_screen extends JFrame implements ActionListener {
                     }//
                 }
             }
-        }
-        else if (e.getSource() == addinstop)
-        {
+        } else if (e.getSource() == addinstop) {
             /*
                 The code below is taken from this website.
                 https://alvinalexander.com/java/joptionpane-showinputdialog-examples
@@ -286,9 +286,7 @@ public class Main_screen extends JFrame implements ActionListener {
                 Check_for_stop_words theword = new Check_for_stop_words(stopword);
                 theword.addstopword();
             }
-        }
-        else if (e.getSource() == exit)
-        {
+        } else if (e.getSource() == exit) {
             System.exit(0);
         }
 

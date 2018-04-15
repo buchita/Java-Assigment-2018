@@ -9,11 +9,15 @@
 
 */
 
-package File;
+
+
+package Com.TopicAnalyser;
 
 import java.util.*;
 
-public class Check_for_stop_words {
+
+public class Check_for_stop_words
+{
     //attribute
     private ArrayList<String> arr_checking = new ArrayList<>();
     private String word_to_b_added;
@@ -103,30 +107,9 @@ public class Check_for_stop_words {
     {
 
         stop.add(word_to_b_added);
-
         System.out.println(stop);
-        /*
-        int current_length = stop_words.length;
-        int new_length = current_length+1;
 
-        String[] temp_stop_arr = new String[new_length];
-        for (int i =0; i<new_length; i++)
-        {
-            temp_stop_arr[i] = stop_words[i];
-        }
-
-        temp_stop_arr[current_length] = word_to_b_added;
-        stop_words = temp_stop_arr;
-
-        for (String element: stop_words)
-        {
-            System.out.println(element);
-        }
-        */
     }
-
-
-
 
 
 }
