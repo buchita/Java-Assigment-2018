@@ -31,6 +31,8 @@ public class Main_screen extends JFrame implements ActionListener {
     private JLabel lab;
     private JButton b;
 
+
+    //getters and setters
     public JButton getChoosetext1() {
         return choosetext1;
     }
@@ -66,63 +68,56 @@ public class Main_screen extends JFrame implements ActionListener {
     public JButton getAddinstop() {
         return addinstop;
     }
-
     public void setAddinstop(JButton addinstop) {
         this.addinstop = addinstop;
     }
-
     public JButton getExit() {
         return exit;
     }
-
     public void setExit(JButton exit) {
         this.exit = exit;
     }
 
-    //constructor
-    public Main_screen(String title) {
+
+
+    //constructor taken a string
+    public Main_screen(String title)
+    {
         super(title);
         setSize(400, 400);
         setLayout(new FlowLayout());
 
 
-        //set colour JFrame to purple
+        //set colour JFrame to pink
         getContentPane().setBackground(new java.awt.Color(255, 204, 242));
 
-
         //label
-        lab = new JLabel("Topic Analyser");
-        lab.setHorizontalAlignment(JLabel.CENTER);
-        lab.setVerticalAlignment(JLabel.CENTER);
-        lab.setBounds(50, 50, 100, 30);
-        lab.setFont(new Font("plain", Font.BOLD, 46));
-        lab.setForeground(new java.awt.Color(255, 170, 0)); //orange - 255,148,77
-        add(lab);
+        lab = new JLabel("Topic Analyser"); //name the label as topic analyser
+        lab.setHorizontalAlignment(JLabel.CENTER);  //make the label center
+        lab.setVerticalAlignment(JLabel.CENTER);    //make the label center
+        lab.setFont(new Font("plain", Font.BOLD, 46));  //set font
+        lab.setForeground(new java.awt.Color(255, 170, 0)); //set the colour of the label
+        add(lab);   //add label to the JFrame
 
         //create button for file chooser
         choosetext1 = new JButton("Choose a text file");
+        choosetext1.setBackground(new java.awt.Color(153, 179, 255));   //change colour for button
         add(choosetext1);
-
-        //change colour for button
-        choosetext1.setBackground(new java.awt.Color(153, 179, 255));
         choosetext1.addActionListener(this);
 
-        //create a button for another file chooser
+        //create a button for add in a stop word
         addinstop = new JButton("Add in a stop word");
+        addinstop.setBackground(new java.awt.Color(217, 179, 255)); //change the colour for the button
         add(addinstop);
-
-        //change the colour for the button
-        addinstop.setBackground(new java.awt.Color(217, 179, 255));
         addinstop.addActionListener(this);
 
         //close the window
         exit = new JButton("Close the window");
-        add(exit);
-
-        //change colour
         exit.setBackground(new java.awt.Color(159,255,128));
+        add(exit);
         exit.addActionListener(this);
 
+        //set everything visible
         setVisible(true);
 
     }
@@ -262,11 +257,12 @@ public class Main_screen extends JFrame implements ActionListener {
                                 commonstr = commonstr + " " + common.get(i);
                             }
 
+                            System.out.println("the legth:" +commonstr.length());
                             //check if the string is empty i.e no common words
-                            if (commonstr != null && !"".equals(commonstr)) {
-                                cmline = "There is no common word between these 2 files";
+                            if (commonstr.length()>1) {
+                                cmline =  "The common words between the 2 files:" + commonstr;
                             } else {
-                                cmline = "The common words between the 2 files:" + commonstr;
+                                cmline = "There is no common word between these 2 files";
                             }
 
                             JOptionPane.showMessageDialog(this, cmline);
@@ -278,7 +274,12 @@ public class Main_screen extends JFrame implements ActionListener {
         }
         else if (e.getSource() == addinstop)
         {
+            /*
+                The code below is taken from this website.
+                https://alvinalexander.com/java/joptionpane-showinputdialog-examples
+             */
             String stopword = JOptionPane.showInputDialog(this, "Enter a Stop word");
+            /* *********************************************************************************************** */
             int sure = JOptionPane.showOptionDialog(null, "Are you sure you want to add this word in?", "Stop Word", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
 
             if (sure == JOptionPane.YES_OPTION) {
