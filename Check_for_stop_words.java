@@ -16,7 +16,7 @@ import java.util.*;
 public class Check_for_stop_words {
     //attribute
     private ArrayList<String> arr_checking = new ArrayList<>();
-
+    private String word_to_b_added;
     //array of stop words
     private String stop_words[] = {"a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "aren't", "as", "at", "be", "because", "been", "before",
             "being", "below", "between", "both", "but", "by", "can't", "cannot", "could", "couldn't", "did", "didn't", "do", "does", "doesn't", "doing", "don't", "down",
@@ -29,6 +29,7 @@ public class Check_for_stop_words {
             "where", "where's", "which", "while", "who", "who's", "whom", "why", "why's", "with", "won't", "would", "wouldn't", "you", "you'd", "you'll", "you're", "you've",
             "your", "yours", "yourself", "yourselves"
     };
+    ArrayList<String> stop = new ArrayList<>(Arrays.asList(stop_words));
 
 
 
@@ -36,14 +37,34 @@ public class Check_for_stop_words {
     public Check_for_stop_words(ArrayList<String> arr_checking) {
         this.arr_checking = arr_checking;
     }
+    public Check_for_stop_words(String word_to_b_added)
+    {
+        this.word_to_b_added = word_to_b_added;
+    }
 
     //getter and setter
     public ArrayList<String> getArr_checking() {
         return arr_checking;
     }
 
+    public ArrayList<String> getStop() {
+        return stop;
+    }
+
+    public void setStop(ArrayList<String> stop) {
+        this.stop = stop;
+    }
+
     public void setArr_checking(ArrayList<String> arr_checking) {
         this.arr_checking = arr_checking;
+    }
+
+    public String getWord_to_b_added() {
+        return word_to_b_added;
+    }
+
+    public void setWord_to_b_added(String word_to_b_added) {
+        this.word_to_b_added = word_to_b_added;
     }
 
     public String[] getStop_words() {
@@ -63,19 +84,45 @@ public class Check_for_stop_words {
         //sort the array alphabetically
         Collections.sort(arr_checking);
 
-        for (int i =0; i<stop_words.length; i++)
+        for (int i =0; i<stop.size(); i++)
         {
             //check if the arraylist contains any stop words
-            while(arr_checking.contains(stop_words[i]))
+            while(arr_checking.contains(stop.get(i)))
             {
                 //remove the word from arraylist
-                arr_checking.remove(stop_words[i]); //stop_word[i] = the word that is contained in the array list
+                arr_checking.remove(stop.get(i));
             }
 
         }
 
         return arr_checking;
 
+    }
+
+    public void addstopword()
+    {
+
+        stop.add(word_to_b_added);
+
+        System.out.println(stop);
+        /*
+        int current_length = stop_words.length;
+        int new_length = current_length+1;
+
+        String[] temp_stop_arr = new String[new_length];
+        for (int i =0; i<new_length; i++)
+        {
+            temp_stop_arr[i] = stop_words[i];
+        }
+
+        temp_stop_arr[current_length] = word_to_b_added;
+        stop_words = temp_stop_arr;
+
+        for (String element: stop_words)
+        {
+            System.out.println(element);
+        }
+        */
     }
 
 
