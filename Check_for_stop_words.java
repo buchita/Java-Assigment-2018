@@ -21,8 +21,10 @@ public class Check_for_stop_words
     //attribute
     private ArrayList<String> arr_checking = new ArrayList<>();
     private String word_to_b_added;
+
     //array of stop words
-    private String stop_words[] = {"a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "aren't", "as", "at", "be", "because", "been", "before",
+    private String stop_words[] = {
+            "a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "aren't", "as", "at", "be", "because", "been", "before",
             "being", "below", "between", "both", "but", "by", "can't", "cannot", "could", "couldn't", "did", "didn't", "do", "does", "doesn't", "doing", "don't", "down",
             "during", "each", "few", "for", "from", "further", "had", "hadn't", "has", "hasn't", "have", "haven't", "having", "he", "he'd", "he'll", "he's", "her", "here",
             "here's", "hers", "herself", "him", "himself", "his", "how", "how's", "i", "i'd", "i'll", "i'm", "i've", "if", "in", "into", "is", "isn't", "it", "it's", "its",
@@ -105,7 +107,7 @@ public class Check_for_stop_words
 
     public void addstopword()
     {
-
+        //add in a word into a stop arraylist
         stop.add(word_to_b_added);
         System.out.println(stop);
 

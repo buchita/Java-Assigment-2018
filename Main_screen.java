@@ -11,7 +11,6 @@
 */
 
 
-
 package Com.TopicAnalyser;
 
 import javax.swing.*;
@@ -135,29 +134,30 @@ public class Main_screen extends JFrame implements ActionListener {
 
         if (e.getSource() == choosetext1) {
             //-------------------------------file chooser
-                    /*
+            /*
                         The code below relating to JFileChooser is taken from this website:
                         https://www.mkyong.com/swing/java-swing-jfilechooser-example/
-                    ----------*/
+            ----------*/
 
             //instantiate a filechooser and get the window with the home directory
             JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
             //filter to select only text files
             jfc.setDialogTitle("Select a text file");
+
             //set filter to text file only
             jfc.setAcceptAllFileFilterUsed(false);
+
+            //only text flies can be select
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Text File only", "txt");
             jfc.addChoosableFileFilter(filter);
 
             int returnValue = jfc.showOpenDialog(null);
 
             if (returnValue == JFileChooser.APPROVE_OPTION)
-                /* **************************************************************  */ {
-                //File selectedFile = jfc.getSelectedFile();
+            {
                 String read_in_file = jfc.getSelectedFile().getPath();
-
-                //System.out.println(read_in_file);
+                /* **************************************************************  */
 
                 //instantiate the object calls filereader
                 Read_file fileReader = new Read_file(read_in_file);
@@ -179,19 +179,19 @@ public class Main_screen extends JFrame implements ActionListener {
                 String sen = "The top 10 common words from " + read_in_file + " is: " + line1;
                 JOptionPane.showMessageDialog(this, sen);
 
-                        /*
+                /*
                             The code that is relating to yes or no window is taken and modified from this website
                             https://alvinalexander.com/java/java-joptionpane-showoptiondialog-examples
-                         */
+                */
                 int choice = JOptionPane.showOptionDialog(null, "Select another file??", "Com/TopicAnalyser", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
                 /* ********************************************************************************* */
                 if (choice == JOptionPane.YES_OPTION) {
 
                     //-------------------------------file chooser
-                            /*
+                    /*
                                 The code below relating to JFileChooser is taken from this website:
                                 https://www.mkyong.com/swing/java-swing-jfilechooser-example/
-                            ----------*/
+                    */
 
                     //instantiate a filechooser and get the window with the home directory
                     JFileChooser jfc2 = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
@@ -210,7 +210,7 @@ public class Main_screen extends JFrame implements ActionListener {
                     if (returnValue2 == JFileChooser.APPROVE_OPTION) {
 
                         String read_in_file2 = jfc2.getSelectedFile().getPath();
-
+                        /* **************************************************************  */
                         //instantiate the object calls filereader
                         Read_file fileReader2 = new Read_file(read_in_file2);
 

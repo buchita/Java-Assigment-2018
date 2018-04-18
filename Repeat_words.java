@@ -55,18 +55,21 @@ public class Repeat_words
          */
         //scan each word in the array in . read in one by one.
         for (int i = 0; i < arr_repeating.size(); i++) {
+
             //check if HashMap contains that word or not.
-            if (map.containsKey(arr_repeating.get(i))) {
-                //increment count
+            if (map.containsKey(arr_repeating.get(i)))
+            {
+                //get the count of that element, increment count
                 count = map.get(arr_repeating.get(i));
 
                 //store the updated count as value or that word
                 map.put(arr_repeating.get(i), count + 1);
-            } else //no repeating the word
+            }
+            else //no repeating the word
             {
                 map.put(arr_repeating.get(i), 1);
             }
-
+        /* ***************************************************         */
         }//end for reading in the HashMap
 
         /*
@@ -78,11 +81,12 @@ public class Repeat_words
 
         //sort list with Collections.sort()
         //provide a custom comparator
-        Collections.sort(lis, new Comparator<Map.Entry<String, Integer>>() {
+        Collections.sort(lis, new Comparator<Map.Entry<String, Integer>>() {    //interface
             @Override
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
                 //this is the code to determine whether it will ascending or descending.
                 //in this case it is ascending
+                //its comparing the value.
                 //for descending just swap o2 with o1
                 return (o2.getValue()).compareTo(o1.getValue());
             }
@@ -94,6 +98,8 @@ public class Repeat_words
         for (Map.Entry<String, Integer> entry : lis) {
             sortedmap.put(entry.getKey(), entry.getValue());
         }
+
+        System.out.println(sortedmap);
 
         ArrayList<String> top_word = new ArrayList<>();
 

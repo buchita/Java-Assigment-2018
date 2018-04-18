@@ -12,12 +12,15 @@
 
 package Com.TopicAnalyser;
 
+import java.util.ArrayList;
+
 public class Control
 {
     public static void main(String[] args)
     {
 
-        Main_screen myScreen = new Main_screen("testing a screen");
+        //instantiate a GUI
+        Main_screen myScreen = new Main_screen("Topic Analyser");
 
     }
 }

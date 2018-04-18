@@ -38,10 +38,12 @@ public class Read_file
 
     //getters and setters
     public String getFileName() {
+
         return fileName;
     }
 
     public void setFileName(String fileName) {
+
         this.fileName = fileName;
     }
 
